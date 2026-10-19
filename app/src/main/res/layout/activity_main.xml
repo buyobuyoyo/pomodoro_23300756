@@ -1,19 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="28dp"
+            android:paddingVertical="24dp">
+
+            <!-- Estado actual del ciclo: Concentración o Descanso -->
+            <TextView
+                android:id="@+id/tv_estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Concentración"
+                android:textColor="#222222"
+                android:textSize="22sp"
+                android:layout_marginTop="24dp" />
+
+            <!-- Indicador del tiempo restante -->
+            <TextView
+                android:id="@+id/tv_tiempo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="25:00"
+                android:textColor="#222222"
+                android:textSize="64sp"
+                android:layout_marginTop="8dp" />
+
+            <!-- Número de ciclos completados -->
+            <TextView
+                android:id="@+id/tv_ciclos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Ciclos completados: 0"
+                android:textColor="#555555"
+                android:textSize="16sp"
+                android:layout_marginBottom="32dp" />
+
+            <!-- Controles: iniciar, pausar, reanudar y detener -->
+            <Button
+                android:id="@+id/btn_iniciar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Iniciar"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_pausar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Pausar"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_reanudar"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Reanudar"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_detener"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:text="Detener"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <!-- Configuración de la duración (en minutos) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configuración (minutos)"
+                android:textColor="#222222"
+                android:textSize="18sp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="12dp" />
+
+            <EditText
+                android:id="@+id/et_minutos_concentracion"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Minutos de concentración"
+                android:inputType="number"
+                android:text="25"
+                android:paddingHorizontal="12dp"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/et_minutos_descanso"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginBottom="24dp"
+                android:hint="Minutos de descanso"
+                android:inputType="number"
+                android:text="5"
+                android:paddingHorizontal="12dp"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_guardar_config"
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Guardar"
+                android:textAllCaps="false"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
